@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITAA - Design 9 (v2): The Impact Hub</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --color-primary: #172554; /* blue-950 */
+            --color-accent1: #fbbf24; /* amber-400 */
+            --color-accent2: #f1f5f9; /* slate-100 */
+            --color-text-primary: #172554; /* blue-950 */
+            --color-text-secondary: #475569; /* slate-600 */
+            --color-text-on-primary: #ffffff;
+            --color-text-on-accent: #172554; /* blue-950 */
+            --color-bg-base: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text-secondary);
+            background-color: var(--color-bg-base);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.65;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+        .font-oswald { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.02em; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+
+        .text-primary { color: var(--color-primary); }
+        .bg-primary { background-color: var(--color-primary); }
+        .border-primary { border-color: var(--color-primary); }
+
+        .text-accent { color: var(--color-accent1); }
+        .bg-accent { background-color: var(--color-accent1); }
+        .border-accent { border-color: var(--color-accent1); }
+        .ring-accent { --tw-ring-color: var(--color-accent1); }
+
+        .bg-subtle { background-color: var(--color-accent2); }
+        .border-subtle { border-color: #e2e8f0; } /* slate-200 */
+
+        .text-on-primary { color: var(--color-text-on-primary); }
+        .text-on-accent { color: var(--color-text-on-accent); }
+
+        .geo-divider { height: 4px; background-color: var(--color-accent1); width: 60px; }
+
+        /* Image Placeholder Style */
+        .image-placeholder {
+            background: linear-gradient(to br, #e2e8f0, #f1f5f9); /* slate-200 to slate-100 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #94a3b8; /* slate-400 */
+            font-size: 0.8rem;
+            font-style: italic;
+            border: 1px dashed #cbd5e1; /* slate-300 */
+        }
+    </style>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+                 'oswald': ['Oswald', 'sans-serif'],
+                 'inter': ['Inter', 'sans-serif'],
+            },
+            colors: {
+               'primary': 'var(--color-primary)',
+               'accent': 'var(--color-accent1)',
+               'subtle': 'var(--color-accent2)',
+               'text-primary': 'var(--color-text-primary)',
+               'text-secondary': 'var(--color-text-secondary)',
+               'text-on-primary': 'var(--color-text-on-primary)',
+               'text-on-accent': 'var(--color-text-on-accent)',
+               // Include full Tailwind colors
+               slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#030712' },
+               blue: { 950: '#172554' }, // Only used primary blue
+               amber: { 400: '#fbbf24', 500: '#f59e0b' } // Only used accent gold
+            },
+             boxShadow: {
+                'card': '0 5px 15px rgba(0, 0, 0, 0.06)',
+                'lifted': '0 10px 30px rgba(0, 0, 0, 0.08)',
+             },
+             borderRadius: {
+                 'lg': '0.5rem', // Default lg
+                 'xl': '0.75rem' // Default xl
+             }
+          }
+        },
+      }
+    </script>
+
+</head>
+<body class="bg-white font-inter text-text-secondary antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-subtle shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <a href="#" class="text-lg font-bold font-oswald uppercase tracking-wide text-primary hover:text-blue-800 transition-colors">
+                MITAA Impact
+            </a>
+            <nav class="hidden lg:flex items-center space-x-7 font-medium text-xs uppercase tracking-wider text-primary">
+                 <a href="#about" class="hover:text-accent transition-colors duration-200">About</a>
+                <a href="#impact" class="hover:text-accent transition-colors duration-200">Impact</a>
+                <a href="#spotlight" class="hover:text-accent transition-colors duration-200">Spotlight</a>
+                <a href="#membership" class="hover:text-accent transition-colors duration-200">Join</a>
+                <a href="#contact" class="hover:text-accent transition-colors duration-200">Contact</a>
+            </nav>
+             <div class="flex items-center space-x-3">
+                 <a href="#" class="hidden sm:inline-block font-semibold text-center px-4 py-1.5 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm bg-accent hover:bg-amber-500 text-text-on-accent focus:ring-accent text-xs">Login</a>
+                <button id="mobile-menu-button-9" aria-label="Toggle Menu" aria-controls="mobile-menu-9" aria-expanded="false" class="lg:hidden text-primary focus:outline-none p-2 rounded-md hover:bg-subtle transition-colors duration-200">
+                    <span class="sr-only">Open menu</span>
+                    <i class="fas fa-bars w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+         <div id="mobile-menu-9" class="lg:hidden hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 z-40 border-t border-subtle">
+             <div class="px-6 space-y-3 font-medium text-sm uppercase tracking-wider">
+                  <a href="#about" class="block py-1 text-primary hover:text-accent transition-colors">About</a>
+                <a href="#impact" class="block py-1 text-primary hover:text-accent transition-colors">Impact</a>
+                <a href="#spotlight" class="block py-1 text-primary hover:text-accent transition-colors">Spotlight</a>
+                <a href="#membership" class="block py-1 text-primary hover:text-accent transition-colors">Join</a>
+                <a href="#contact" class="block py-1 text-primary hover:text-accent transition-colors">Contact</a>
+                <a href="#" class="block mt-4 w-full text-center font-semibold px-5 py-2 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm bg-accent hover:bg-amber-500 text-text-on-accent focus:ring-accent">Login</a>
+             </div>
+         </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative py-24 md:py-36 lg:py-48 bg-primary text-on-primary overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.07]" style="background-image: url('data:image/svg+xml,%3Csvg width=%2252%22 height=%2226%22 viewBox=%220 0 52 26%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%23fbbf24%22 fill-opacity=%220.4%22%3E%3Cpath d=%22M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414zM41 6c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6z%22/%3E%3C/g%3E%3C/svg%3E');"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="font-oswald text-5xl sm:text-6xl md:text-7xl lg:text-8xl !font-bold uppercase !text-white mb-5 leading-none tracking-wide">
+                    MIT Alumni: <span class="text-accent">Driven By Impact.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl mx-auto">
+                   Connecting generations of innovators and leaders from Muzaffarpur Institute of Technology. Explore our collective achievements and network.
+                </p>
+                 <a href="#impact" class="inline-block font-semibold text-center px-8 py-3 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary shadow-lg bg-accent hover:bg-amber-500 text-text-on-accent focus:ring-accent transform hover:scale-105 text-base">
+                    See Our Impact
+                 </a>
+            </div>
+        </section>
+
+         <!-- Impact / Stats Section -->
+        <section id="impact" class="py-20 md:py-28 bg-subtle">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <h2 class="text-3xl font-bold text-center text-primary mb-16">Our Collective Strength</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 text-center">
+                    <div class="flex flex-col items-center">
+                         <i class="fas fa-users text-4xl text-primary mb-4"></i>
+                        <span class="font-oswald text-5xl lg:text-6xl font-bold text-accent block mb-2">10K+</span>
+                        <h3 class="font-semibold text-base text-primary uppercase tracking-wider">Global Alumni</h3>
+                    </div>
+                     <div class="flex flex-col items-center">
+                         <i class="fas fa-history text-4xl text-primary mb-4"></i>
+                         <span class="font-oswald text-5xl lg:text-6xl font-bold text-accent block mb-2">50+</span>
+                        <h3 class="font-semibold text-base text-primary uppercase tracking-wider">Years of Legacy</h3>
+                    </div>
+                     <div class="flex flex-col items-center">
+                         <i class="fas fa-id-badge text-4xl text-primary mb-4"></i>
+                         <span class="font-oswald text-5xl lg:text-6xl font-bold text-accent block mb-2">500+</span>
+                        <h3 class="font-semibold text-base text-primary uppercase tracking-wider">Life Members</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-24">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                      <div class="relative">
+                           <!-- Reliable Image Placeholder -->
+                           <div class="image-placeholder w-full aspect-[4/3] rounded-lg shadow-lifted">
+                               Placeholder: Professional team working or<br> network graphic (4:3 aspect ratio)
+                           </div>
+                           <!-- Geometric accent -->
+                           <div class="absolute -bottom-5 -left-5 w-24 h-24 border-8 border-accent rounded-full opacity-70 -z-10"></div>
+                      </div>
+                       <div>
+                         <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">The MITAA Advantage</h2>
+                         <div class="geo-divider mb-6"></div>
+                         <p class="text-text-secondary leading-relaxed mb-4">
+                            The MIT Alumni Association (MITAA) is the official body dedicated to strengthening the bonds between Muzaffarpur Institute of Technology and its diverse global alumni network.
+                         </p>
+                         <p class="text-text-secondary leading-relaxed">
+                             We provide a robust platform for professional networking, continuous learning, mentorship, and celebrating the remarkable achievements of our graduates, while actively supporting the strategic goals of the Institute.
+                         </p>
+                         <a href="#" class="inline-block mt-6 font-semibold text-sm text-primary hover:text-accent border-b-2 border-primary hover:border-accent transition pb-1">
+                             Learn More About Our Mission <i class="fas fa-long-arrow-alt-right ml-1 text-xs"></i>
+                         </a>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Alumni Spotlight Section -->
+        <section id="spotlight" class="py-20 md:py-28 bg-subtle">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center max-w-3xl mx-auto mb-16">
+                     <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Alumni Spotlight</h2>
+                     <p class="text-base md:text-lg text-text-secondary leading-relaxed">Highlighting the exceptional achievements and contributions of MIT graduates.</p>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <!-- Spotlight Card 1 -->
+                     <div class="bg-white rounded-lg overflow-hidden shadow-card transition hover:shadow-lifted flex flex-col">
+                         <!-- Reliable Image Placeholder -->
+                         <div class="image-placeholder w-full h-48">Placeholder: Professional Portrait</div>
+                         <div class="p-5 flex flex-col flex-grow">
+                             <h3 class="text-xl font-semibold text-primary mb-1">Alumnus Name</h3>
+                             <p class="text-xs font-medium text-accent uppercase tracking-wider mb-2">Batch 'XX | Industry/Field</p>
+                             <p class="text-sm text-text-secondary line-clamp-3 mb-3 flex-grow">Brief description of achievement or contribution. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                             <a href="#" class="text-xs font-semibold text-primary hover:text-accent mt-auto self-start">Read Story <i class="fas fa-angle-right ml-1"></i></a>
+                         </div>
+                     </div>
+                     <!-- Spotlight Card 2 -->
+                     <div class="bg-white rounded-lg overflow-hidden shadow-card transition hover:shadow-lifted flex flex-col">
+                          <!-- Reliable Image Placeholder -->
+                         <div class="image-placeholder w-full h-48">Placeholder: Professional Portrait</div>
+                         <div class="p-5 flex flex-col flex-grow">
+                             <h3 class="text-xl font-semibold text-primary mb-1">Alumna Name</h3>
+                             <p class="text-xs font-medium text-accent uppercase tracking-wider mb-2">Batch 'YY | Industry/Field</p>
+                             <p class="text-sm text-text-secondary line-clamp-3 mb-3 flex-grow">Another brief description highlighting impact or success. Consectetur adipisicing elit.</p>
+                             <a href="#" class="text-xs font-semibold text-primary hover:text-accent mt-auto self-start">Read Story <i class="fas fa-angle-right ml-1"></i></a>
+                         </div>
+                     </div>
+                     <!-- Spotlight Card 3 -->
+                     <div class="bg-white rounded-lg overflow-hidden shadow-card transition hover:shadow-lifted flex flex-col">
+                          <!-- Reliable Image Placeholder -->
+                         <div class="image-placeholder w-full h-48">Placeholder: Professional Portrait</div>
+                         <div class="p-5 flex flex-col flex-grow">
+                             <h3 class="text-xl font-semibold text-primary mb-1">Alumnus Name</h3>
+                             <p class="text-xs font-medium text-accent uppercase tracking-wider mb-2">Batch 'ZZ | Industry/Field</p>
+                             <p class="text-sm text-text-secondary line-clamp-3 mb-3 flex-grow">Short description of their journey or contribution. Sit amet consectetur adipisicing elit.</p>
+                             <a href="#" class="text-xs font-semibold text-primary hover:text-accent mt-auto self-start">Read Story <i class="fas fa-angle-right ml-1"></i></a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="text-center mt-12">
+                    <a href="#" class="inline-block font-semibold text-center px-6 py-2.5 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm border border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary text-sm">View More Spotlights</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership CTA -->
+        <section id="membership" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center bg-gradient-to-r from-blue-950 to-primary p-10 md:p-16 rounded-xl shadow-lifted text-white">
+                     <h2 class="text-3xl md:text-4xl font-bold !text-white mb-4">Join the Ranks of MIT Leaders</h2>
+                    <p class="text-base md:text-lg text-slate-200 max-w-xl mx-auto mb-8 leading-relaxed">
+                        Become a Life Member to unlock the full potential of your MIT connection, gain exclusive access, and invest in our collective impact.
+                    </p>
+                     <a href="#" class="inline-block font-semibold text-center px-8 py-3 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary shadow-lg bg-accent hover:bg-amber-500 text-text-on-accent focus:ring-accent transform hover:scale-105 text-base">
+                        Become a Life Member Today
+                     </a>
+                 </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+     <footer id="contact" class="bg-primary text-slate-300 pt-16 pb-8 mt-16">
+         <!-- Footer Content (remains similar) -->
+         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 text-sm">
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <a href="#" class="text-lg font-bold font-oswald uppercase tracking-wide text-white mb-4 block">
+                        MITAA Impact
+                    </a>
+                     <p class="text-xs leading-relaxed text-slate-400">Muzaffarpur Institute of Technology Alumni Association.</p>
+                 </div>
+                 <div>
+                    <h4 class="font-semibold text-white mb-3 uppercase text-xs tracking-wider">Navigate</h4>
+                     <ul class="space-y-1.5 text-slate-400">
+                          <li><a href="#about" class="hover:text-accent transition">About</a></li>
+                         <li><a href="#impact" class="hover:text-accent transition">Impact</a></li>
+                         <li><a href="#spotlight" class="hover:text-accent transition">Spotlight</a></li>
+                         <li><a href="#membership" class="hover:text-accent transition">Join</a></li>
+                         <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
+                     </ul>
+                 </div>
+                  <div>
+                    <h4 class="font-semibold text-white mb-3 uppercase text-xs tracking-wider">Resources</h4>
+                     <ul class="space-y-1.5 text-slate-400">
+                         <li><a href="#" class="hover:text-accent transition">Directory</a></li>
+                         <li><a href="#" class="hover:text-accent transition">News & Updates</a></li>
+                         <li><a href="#" class="hover:text-accent transition">Financial Overview</a></li>
+                         <li><a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">MIT Website</a></li>
+                     </ul>
+                 </div>
+                  <div>
+                     <h4 class="font-semibold text-white mb-3 uppercase text-xs tracking-wider">Contact</h4>
+                     <address class="not-italic text-xs text-slate-400 space-y-1">
+                         <p>MITAA Secretary</p>
+                         <p><a href="mailto:secretary.mitaa@mitmuzaffarpur.org" class="hover:text-accent transition">secretary.mitaa@mitmuzaffarpur.org</a></p>
+                         <p>[Insert Phone Number]</p>
+                         <div class="flex space-x-4 mt-3 text-slate-300">
+                            <a href="#" aria-label="Facebook" class="hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LinkedIn" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="WhatsApp" class="hover:text-green-400 transition"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                     </address>
+                 </div>
+             </div>
+             <div class="border-t border-blue-900 pt-6 text-center text-xs text-slate-500">
+                  <p>© <script>document.write(new Date().getFullYear())</script> MIT Alumni Association. All Rights Reserved. | Concept: Impact Hub (v2)</p>
+             </div>
+        </div>
+    </footer>
+
+     <script>
+         // Mobile menu script (Design 9) - No change needed
+         const menuButton9 = document.getElementById('mobile-menu-button-9');
+         const mobileMenu9 = document.getElementById('mobile-menu-9');
+         menuButton9.addEventListener('click', () => {
+             const isExpanded = menuButton9.getAttribute('aria-expanded') === 'true';
+             menuButton9.setAttribute('aria-expanded', !isExpanded);
+             mobileMenu9.classList.toggle('hidden');
+         });
+         const mobileMenuLinks9 = mobileMenu9.querySelectorAll('a');
+         mobileMenuLinks9.forEach(link => {
+             link.addEventListener('click', () => {
+                 menuButton9.setAttribute('aria-expanded', 'false');
+                 mobileMenu9.classList.add('hidden');
+             });
+         });
+     </script>
+
+</body>
+</html>
